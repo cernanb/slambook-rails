@@ -1,0 +1,14 @@
+<h1>Create a New Book</h1>
+<%= form_for @book do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %> <br />
+  <%= f.label :creator %>
+  <%= f.text_field :creator %> <br />
+  <div id="questions">
+    <%= f.fields_for :questions do |question_form| %>
+      <%= question_form.text_field :content %>
+    <% end %>
+  </div>
+  <button id="add-question">Add Question</button>
+  <%= f.submit %>
+<% end %>
