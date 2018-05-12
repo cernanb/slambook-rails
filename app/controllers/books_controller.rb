@@ -4,6 +4,10 @@ class BooksController < ApplicationController
     @book.questions.build
   end
 
+  def index 
+    @books = Book.all
+  end
+
   def create
     @book = Book.new(book_params)
     @book.save
