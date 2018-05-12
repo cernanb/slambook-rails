@@ -1,4 +1,7 @@
 <h1><%= @book.title %></h1>
 <%= @question.content %> <br/>
 
+<% if @book.questions.last == @question %>
+<% else %>
 <%= link_to "Next Question", book_next_question_path(@book, @question) %>
+<% end %>
