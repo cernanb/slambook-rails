@@ -2,6 +2,7 @@
 <%= @question.content %> <br/>
 
 <% if @book.questions.last == @question %>
+  <%= link_to "All Done! Go home...", root_path %>
 <% else %>
-<%= link_to "Next Question", book_next_question_path(@book, @question) %>
+  <%= link_to "Next Question", book_next_question_path(@book, @question) %>
 <% end %>
