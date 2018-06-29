@@ -1,8 +1,10 @@
 <h1><%= @book.title %></h1>
 <%= @question.content %> <br/>
-
-<% if @book.questions.last == @question %>
-  <%= link_to "All Done! Go home...", root_path %>
-<% else %>
-  <%= link_to "Next Question", book_next_question_path(@book, @question) %>
+<%= form_for ([@book, @question, Answer.new]) do |f| %>
+  <%= f.text_field :content %>
+  <% if @book.questions.last == @question %>
+    <%= f.submit "Complete" %>
+  <% else %>
+  <%= f.submit "Next Question" %>
+  <% end %>
 <% end %>

@@ -1,2 +1,16 @@
 <h1><%= @book.title %></h1>
 <%= link_to "Start", book_question_path(@book, @book.questions.first) %>
+
+<ul>
+  <% @book.questions.each do |question| %>
+    <li>
+      <%= question.content %>
+      <ul>
+        <% question.answers.each do |answer| %>
+          <li><%= answer.content %></li>
+        <% end %>
+      </ul>
+    </li>
+    
+  <% end %>
+</ul>
